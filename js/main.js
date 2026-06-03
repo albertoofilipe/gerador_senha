@@ -1,3 +1,14 @@
+function gerarSenhasAleatorias(caracteres, tamanho) {
+    let senha = ''
+
+    for (let i = 0; i < tamanho; i++) {
+        const indiceAleatorio = Math.floor(Math.random() * caracteres.length)
+        senha += caracteres[indiceAleatorio]
+    }
+
+    return senha
+}
+
 const range = document.querySelector('#range')
 const rangeValue = document.querySelector('#rangeValue')
 
@@ -13,7 +24,7 @@ const checkboxSymbols = checkbox[3]
 
 const btnGerar = document.querySelector('#btn_gerar_senha')
 const inputSenha = document.querySelector('#password')
-const btnCopiar = document.querySelector('#btn_copiar')
+const btnCopiar = document.querySelector('.btn_copiar')
 
 // Conjunto de caracteres
 const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -48,14 +59,8 @@ btnGerar.addEventListener('click', () => {
             caracteres += symbols
         }
 
-        let senha = ''
+        inputSenha.value = gerarSenhasAleatorias(caracteres, range.value)
 
-        for (let i = 0; i < range.value; i++) {
-            const indiceAleatorio = Math.floor(Math.random() * caracteres.length)
-            senha += caracteres[indiceAleatorio]
-        }
-
-        inputSenha .value = senha
         Toastify({
             text: 'Sua senha está pronta!!',
             duration: 1500,
@@ -63,6 +68,7 @@ btnGerar.addEventListener('click', () => {
                 background: successColor
             }
         }).showToast()
+        
     } else {
         Toastify({
             text: 'Marque pelo menos uma das opções!',
@@ -71,5 +77,33 @@ btnGerar.addEventListener('click', () => {
                 background: errorColor
             }
         }).showToast()
+    }
+})
+
+btnCopiar.addEventListener('click', () => {
+    if (!inputSenha.value) {
+        Toastify({
+            text: 'Primeiro gera a senha, e depois podes copiar!',
+            duration: 3000,
+            style: {
+                background: warningColor
+            }
+        }).showToast()
+    } else {
+        navigator.clipboard.writeText(inputSenha.value)
+        inputSenha.select()
+        btnCopiar.textContent = 'Copiado'
+
+        setTimeout(() => {
+            Toastify({
+            text: `Senha copiada com sucesso: ${inputSenha.value}!`,
+            duration: 3000,
+            style: {
+                background: successColor
+            }
+        }).showToast()
+
+            btnCopiar.textContent = 'Copiar'
+        }, 500)
     }
 })
