@@ -24,6 +24,13 @@
     /* ==== BORDAS === */
 
     --color-border: #1F2937;
+
+    /* ==== Estados === */
+
+    --color-success: #22C55E;
+    --color-error: #EF4444;
+    --color-warning: #F59E0B;
+    --color-info: #06B6D4;
 }
 
 * {
