@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gerador de senhas</title>
+</head>
+
+<body>
+    <main>
+        <div class="screen">
+            <h1>Gerador de senhas</h1>
+            <p>Crie senhas fortes em segundos, e proteja os seus dados com mais segurança.</p>
+            <div class="areaQuantidade">
+                <div><label>Quantidade caracteres: </label><span id="rangeValue">12</span></div>
+                <span>8</span> <input type="range" id="range" min="8" max="30" value="12" step="2"> <span>30</span>
+                <div>
+            </div>
+            <div class="check">
+                <input type="checkbox" name="letraMausc" id="letraMausc" checked>
+                <label for="letraMausc">Letras Mausculas</label>
+            </div>
+            <div class="check">
+                <input type="checkbox" name="letraMinusc" id="letraMinusc">
+                <label for="letraMinusc">Letras Minusculas</label>
+            </div>
+            <div class="check">
+                <input type="checkbox" name="leraMausc" id="leraMausc">
+                <label for="leraMausc">Números</label>
+            </div>
+            <div class="check" style="border: none;">
+                <input type="checkbox" name="caracteres" id="caracteres">
+                <label for="caracteres">Caracteres especias</label>
+            </div>
+            <div class="btn_item">
+                <button id="btn_gerar_senha">Gerar a senha</button>
+            </div>
+            <div class="areaPassword">
+                <input type="text" name="password" id="password" placeholder="Copia a senha gerada aquí">
+                <button class="btn_copiar">Copiar</button>
+            </div>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

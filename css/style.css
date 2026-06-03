@@ -1,0 +1,175 @@
+:root {
+    /* ============== CORES ================= */
+
+    /* ==== FUNDOS === */
+
+    --color-background: #0B1120;
+    --color-surface: #0F172A;
+
+    /* ==== PRINCIPAIS === */
+
+    --color-primary: #16A34A;
+    --color-primary-hover: #15803D;
+
+    /* ==== SECUNDÁRIAS === */
+
+    --color-secondary: #3B82F6;
+    --color-secondary-hover: #498fff;
+
+    /* ==== TEXTOS === */
+
+    --color-text-primary: #F8FADC;
+    --color-text-secondary: #CBD5E1;
+
+    /* ==== BORDAS === */
+
+    --color-border: #1F2937;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--color-background);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.screen {
+    background-color: var(--color-surface);
+    padding: 15px;
+    border-radius: 5px;
+    width: 450px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.171);
+}
+
+.screen h1 {
+    color: var(--color-text-primary);
+    text-align: center;
+    margin: 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.screen p {
+    text-align: center;
+    color: var(--color-text-secondary);
+    margin: 15px;
+    margin-bottom: 30px;
+}
+
+.screen div {
+    margin: 10px 0;
+}
+
+label, span {
+    color: var(--color-text-primary);
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+span {
+    color: var(--color-text-secondary);
+}
+
+.screen input[type="range"] {
+    width: 85%;
+    appearance: none;
+    background-color: var(--color-border);
+    height: 10px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.screen input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.screen input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.screen input[type="checkbox"]:checked {
+    background-color: var(--color-primary);
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.check:not(:last-child) {
+    border-bottom: 0.1px solid var(--color-border);
+}
+
+.btn_item #btn_gerar_senha {
+    width: 100%;
+    border: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+.btn_item #btn_gerar_senha:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.screen .areaPassword input {
+    background-color: var(--color-background);
+    border: none;
+    padding: 10px 5px;
+    border-radius: 5px;
+    width: 65%;
+    color: var(--color-text-primary);
+    outline: none;
+}
+
+.screen .areaPassword button {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30.5%;
+    transition: all 0.3s;
+}
+
+.screen .areaPassword button:hover {
+    background-color: var(--color-secondary-hover);
+}
+
+::placeholder {
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
