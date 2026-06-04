@@ -68,7 +68,7 @@ btnGerar.addEventListener('click', () => {
                 background: successColor
             }
         }).showToast()
-        
+
     } else {
         Toastify({
             text: 'Marque pelo menos uma das opções!',
@@ -96,12 +96,12 @@ btnCopiar.addEventListener('click', () => {
 
         setTimeout(() => {
             Toastify({
-            text: `Senha copiada com sucesso: ${inputSenha.value}!`,
-            duration: 3000,
-            style: {
-                background: successColor
-            }
-        }).showToast()
+                text: `Senha copiada com sucesso: ${inputSenha.value}!`,
+                duration: 3000,
+                style: {
+                    background: successColor
+                }
+            }).showToast()
 
             btnCopiar.textContent = 'Copiar'
         }, 500)
