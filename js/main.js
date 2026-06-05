@@ -12,10 +12,6 @@ function gerarSenhasAleatorias(caracteres, tamanho) {
 const range = document.querySelector('#range')
 const rangeValue = document.querySelector('#rangeValue')
 
-range.addEventListener('input', () => {
-    rangeValue.textContent = range.value
-})
-
 const checkbox = document.querySelectorAll('input[type="checkbox"]')
 const checkboxUppercase = checkbox[0]
 const checkboxLowercase = checkbox[1]
@@ -38,27 +34,19 @@ const errorColor = getComputedStyle(document.documentElement).getPropertyValue('
 const warningColor = getComputedStyle(document.documentElement).getPropertyValue('--color-warning')
 const infoColor = getComputedStyle(document.documentElement).getPropertyValue('--color-info')
 
+range.addEventListener('input', () => {
+    rangeValue.textContent = range.value
+})
 
 btnGerar.addEventListener('click', () => {
     if (checkboxUppercase.checked || checkboxLowercase.checked || checkboxNumbers.checked || checkboxSymbols.checked) {
+        
         let caracteres = ''
-
-        if (checkboxUppercase.checked) {
-            caracteres += uppercase
-        }
-
-        if (checkboxLowercase.checked) {
-            caracteres += lowercase
-        }
-
-        if (checkboxNumbers.checked) {
-            caracteres += numbers
-        }
-
-        if (checkboxSymbols.checked) {
-            caracteres += symbols
-        }
-
+        checkboxUppercase.checked ? caracteres += uppercase : ''
+        checkboxLowercase.checked ? caracteres += lowercase : ''
+        checkboxNumbers.checked ? caracteres += numbers : ''
+        checkboxNumbers.checked ? caracteres += numbers : ''
+        checkboxSymbols.checked ? caracteres += symbols : ''
         inputSenha.value = gerarSenhasAleatorias(caracteres, range.value)
 
         Toastify({
@@ -74,7 +62,7 @@ btnGerar.addEventListener('click', () => {
             text: 'Marque pelo menos uma das opções!',
             duration: 3000,
             style: {
-                background: errorColor
+                background: errorColor,
             }
         }).showToast()
     }
@@ -93,7 +81,6 @@ btnCopiar.addEventListener('click', () => {
         navigator.clipboard.writeText(inputSenha.value)
         inputSenha.select()
         btnCopiar.textContent = 'Copiado'
-
         setTimeout(() => {
             Toastify({
                 text: `Senha copiada com sucesso: ${inputSenha.value}!`,
@@ -102,7 +89,6 @@ btnCopiar.addEventListener('click', () => {
                     background: successColor
                 }
             }).showToast()
-
             btnCopiar.textContent = 'Copiar'
         }, 500)
     }
